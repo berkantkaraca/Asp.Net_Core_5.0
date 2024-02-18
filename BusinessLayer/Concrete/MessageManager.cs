@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _messageDal = messageDal;
         }
 
-        public Message GetByID(int id)
+        public Message TGetByID(int id)
         {
             return _messageDal.GetByID(id);
         }

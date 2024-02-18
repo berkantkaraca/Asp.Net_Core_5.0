@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _socialMediaDal = socialMediaDal;
         }
 
-        public SocialMedia GetByID(int id)
+        public SocialMedia TGetByID(int id)
         {
             return _socialMediaDal.GetByID(id);
         }

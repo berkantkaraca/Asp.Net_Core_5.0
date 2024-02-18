@@ -33,7 +33,7 @@ namespace Core_Proje.Controllers
         }
         public IActionResult DeleteSkill(int id)
         {
-            var values = skillManager.GetByID(id);
+            var values = skillManager.TGetByID(id);
             skillManager.TDelete(values); //silme işlemini yapmak için ilk önce o nesneyi bulmam lazım.
             return RedirectToAction("Index");
         }
@@ -43,11 +43,11 @@ namespace Core_Proje.Controllers
             ViewBag.v1 = "Düzenleme";
             ViewBag.v2 = "Yetenekler";
             ViewBag.v3 = "Yetenek Güncelleme";
-            var values = skillManager.GetByID(id);
+            var values = skillManager.TGetByID(id);
             return View(values);
         }
 
-        [HttpPost] //sayfa yüklendiği zaman çalışır
+        [HttpPost]
         public IActionResult EditSkill(Skill skill)
         {
             skillManager.TUpdate(skill);

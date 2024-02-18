@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _portfolioDal = portfolioDal;
         }
 
-        public Portfolio GetByID(int id)
+        public Portfolio TGetByID(int id)
         {
             return _portfolioDal.GetByID(id);
         }

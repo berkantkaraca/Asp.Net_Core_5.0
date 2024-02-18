@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _serviceDal = serviceDal;
         }
 
-        public Service GetByID(int id)
+        public Service TGetByID(int id)
         {
             return _serviceDal.GetByID(id);
         }
