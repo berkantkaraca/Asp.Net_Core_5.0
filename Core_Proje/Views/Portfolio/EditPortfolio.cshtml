@@ -1,20 +1,20 @@
 ﻿@model EntityLayer.Concrete.Portfolio
-
 @{
-    ViewData["Title"] = "AddPortfolio";
+    ViewData["Title"] = "EditPortfolio";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="card-header border-0">
-    <h3 class="mb-0">Proje Ekleme Sayfası</h3>
+    <h3 class="mb-0">Proje Düzenleme Sayfası</h3>
 </div>
 
 @* 1. parametre action ismi
 2. parametre controller
 3. parametre form methot türü *@
-@using (Html.BeginForm("AddPortfolio", "Portfolio", FormMethod.Post))
+@using (Html.BeginForm("EditPortfolio", "Portfolio", FormMethod.Post))
 {
     <form class="form-group" method="post">
+        @Html.HiddenFor(x => x.PortfolioID) @* id tutulacak burda *@
         <br />
         @Html.Label("Proje Başlığı")
         @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
@@ -46,16 +46,10 @@
         @Html.ValidationMessageFor(x => x.Value)
         <br />
 
-        <label>Proje Url</label>
-        @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.ProjectUrl)
+        <label>Platform</label>
+        @Html.TextBoxFor(x => x.Platform, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Platform)
         <br />
-        <label>Proje Url</label>
-        @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.ProjectUrl)
-        <br />
-
-
-        <button class="btn btn-info">Kaydet</button>
+        <button class="btn btn-info">Güncelle</button>
     </form>
 }
