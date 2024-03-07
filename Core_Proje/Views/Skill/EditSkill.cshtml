@@ -1,7 +1,7 @@
 ﻿@model EntityLayer.Concrete.Skill
 @{
     ViewData["Title"] = "EditSkill";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 <div class="card-header border-0">
     <h3 class="mb-0">Yetenek Düzenleme Sayfası</h3>
@@ -12,16 +12,28 @@
 3. parametre form methot türü *@
 @using (Html.BeginForm("EditSkill", "Skill", FormMethod.Post))
 {
-    <form class="form-group" method="post">
-        @Html.HiddenFor(x => x.SkillID) @* id tutulacak burda *@
-        <br />
-        @Html.Label("Yetenek Başlığı")
-        @Html.TextBoxFor(x=>x.Title,new{@class = "form-control"})
-        <br />
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> Yetenek Düzenleme Paneli </p>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>ID</label>
+                        @Html.TextBoxFor(x => x.SkillID, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Değer</label>
+                        @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+                    </div>
 
-        <label>Değer</label>
-        @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
-        <br />
-        <button class="btn btn-success">Güncelle</button>
-    </form>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
 }

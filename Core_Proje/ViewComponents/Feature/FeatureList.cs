@@ -6,7 +6,7 @@ namespace Core_Proje.ViewComponents.Feature
 {
     public class FeatureList : ViewComponent
     {
-        FeatureManeger featureManeger = new FeatureManeger(new EfFeatureDal());
+        FeatureManager featureManeger = new FeatureManager(new EfFeatureDal());
         public IViewComponentResult Invoke()
         {
             var values = featureManeger.TGetList();
