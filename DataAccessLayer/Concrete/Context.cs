@@ -13,7 +13,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=BKARACA\\SQLEXPRESS; database=CoreProjeDB; integrated security=true");
+            optionsBuilder.UseSqlServer("server=BKARACA\\SQLEXPRESS; database=CoreProjeDB; integrated security=true;TrustServerCertificate=True");
         }
 
         public DbSet<About> Abouts { get; set; } // verilen isim veritabanındaki tablo ismi olmalı
@@ -26,6 +26,8 @@ namespace DataAccessLayer.Concrete
         public DbSet<Skill> Skills { get; set; } 
         public DbSet<SocialMedia> SocialMedias { get; set; } 
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserMessage> UserMessages { get; set; }
 
         //Migration yaparken Package Manager Console da:
         //                           proje olarak DataAccesLayer seç ve add-migration mig1 yaz.
